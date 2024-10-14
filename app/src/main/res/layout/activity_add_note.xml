@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
         android:text="Add Note."
-        android:textColor="@color/gray"
+        android:textColor="@color/blue"
         android:textSize="24sp" />
 
     <ImageView
@@ -25,13 +25,14 @@
         android:src="@drawable/baseline_done_24"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@id/addNoteHeading"
-        android:layout_marginEnd="16dp" />
+        android:layout_marginEnd="16dp"/>
     
     <EditText
         android:id="@+id/titleEditText"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:hint="Title"
+        android:textColor="@color/blue"
         android:padding="12dp"
         android:textSize="20sp"
         android:layout_below="@id/addNoteHeading"
@@ -45,6 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:hint="Description"
+        android:textColor="@color/blue"
         android:gravity="top"
         android:padding="12dp"
         android:textSize="18sp"
