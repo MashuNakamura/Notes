@@ -28,7 +28,7 @@
                 android:fontFamily="sans-serif-black"
                 android:textColor="@color/blue"
                 android:textSize="18sp"
-                android:textStyle="Bold"/>
+                android:textStyle="bold"/>
 
         </RelativeLayout>
 
