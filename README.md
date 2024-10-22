@@ -6,3 +6,5 @@
 
 ## Tuesday, 16 October 2024
 - Add some more detail comment on themes (Difference between Light Themes and Dark Themes)
+- Now the Notepad can be added and saved to the Sql (Already on Activity)
+- Work In Progress (Edit and Delete)
