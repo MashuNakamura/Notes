@@ -14,3 +14,4 @@
 ## Tuesday, 22 October 2024
 - Fix the Layout item Card View
 - Now the Notepad can be updated
+- Now the Notepad can be deleted
