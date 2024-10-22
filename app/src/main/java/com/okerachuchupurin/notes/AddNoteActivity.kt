@@ -23,7 +23,7 @@ class AddNoteActivity : AppCompatActivity() {
             val note = Note(0, title, content)
             db.insertNote(note)
             finish()
-            Toast.makeText(this, "Noted Tersimpan !", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Note Tersimpan !", Toast.LENGTH_SHORT).show()
         }
     }
 }
