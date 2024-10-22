@@ -1,3 +1,5 @@
+## This is my Android Studio using Kotlin to create Notepad Apps
+
 ## Monday, 14 October 2024
 - Start Commit the project to Github
 - Start the project
