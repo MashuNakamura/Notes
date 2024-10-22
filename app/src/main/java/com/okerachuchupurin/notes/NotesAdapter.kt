@@ -45,12 +45,11 @@ class NotesAdapter(private var notes: List<Note>, private val context: Context) 
             refreshData(db.getAllNotes())
             Toast.makeText(holder.itemView.context, "Notes telah Dihapus !", Toast.LENGTH_SHORT).show()
         }
-
     }
 
     // Metode untuk memperbarui data
     fun refreshData(newNotes: List<Note>) {
         notes = newNotes
-        notifyDataSetChanged() // Memberitahu RecyclerView untuk memperbarui tampilan
+        notifyDataSetChanged() // Notify the User
     }
 }
