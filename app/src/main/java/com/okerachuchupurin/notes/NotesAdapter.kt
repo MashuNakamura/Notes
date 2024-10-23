@@ -41,14 +41,12 @@ class NotesAdapter(private var notes: List<Note>, private val context: Context) 
             }
             holder.itemView.context.startActivity(intent)
         }
-
         // Confirm Code
         holder.deleteButton.setOnClickListener {
             // Create Dialog
             val confirm_popout = AlertDialog.Builder(context)
             confirm_popout.setTitle("Konfirmasi Penghapusan")
             confirm_popout.setMessage("Apakah Anda yakin ingin menghapus catatan ini?")
-
             // Set tombol "Ya" untuk melanjutkan penghapusan
             confirm_popout.setPositiveButton("Ya") { dialog, _ ->
                 db.deleteNote(note.id)  // Hapus catatan dari database
@@ -56,15 +54,12 @@ class NotesAdapter(private var notes: List<Note>, private val context: Context) 
                 Toast.makeText(holder.itemView.context, "Catatan berhasil dihapus", Toast.LENGTH_SHORT).show()
                 dialog.dismiss()  // Tutup dialog
             }
-
             // Set tombol "Tidak" untuk membatalkan penghapusan
             confirm_popout.setNegativeButton("Tidak") { dialog, _ ->
                 dialog.dismiss()  // Tutup dialog tanpa penghapusan
             }
-
             // Tampilkan dialog
             val dialog = confirm_popout.create()
-
             // Pastikan warna tombol mengikuti tema
             dialog.setOnShowListener {
                 // Mengambil warna dari atribut tema
@@ -79,7 +74,6 @@ class NotesAdapter(private var notes: List<Note>, private val context: Context) 
                     // Jika mode terang aktif, gunakan warna gelap
                     context.getColor(android.R.color.black)
                 }
-
                 // Atur warna tombol
                 positiveButton.setTextColor(textColor)
                 negativeButton.setTextColor(textColor)
