@@ -15,3 +15,7 @@
 - Fix the Layout item Card View
 - Now the Notepad can be updated
 - Now the Notepad can be deleted
+
+## Wednesday,  23 October 2024
+- Change the minSDK to 23
+- Now notepad can popout some confirm before deete the notepad
