@@ -43,7 +43,7 @@ class NotesAdapter(private var notes: List<Note>, private val context: Context) 
         }
         // Confirm Code
         holder.deleteButton.setOnClickListener {
-            // Create Dialog
+            // Create Dialog untuk Confirm Popout
             val confirm_popout = AlertDialog.Builder(context)
             confirm_popout.setTitle("Konfirmasi Penghapusan")
             confirm_popout.setMessage("Apakah Anda yakin ingin menghapus catatan ini?")
@@ -66,6 +66,7 @@ class NotesAdapter(private var notes: List<Note>, private val context: Context) 
                 val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
                 val negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE)
 
+                // Penyesuaian ganti warna pada sebuah message popout
                 val textColor = if (context.resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK ==
                     android.content.res.Configuration.UI_MODE_NIGHT_YES) {
                     // Jika mode gelap aktif, gunakan warna terang
