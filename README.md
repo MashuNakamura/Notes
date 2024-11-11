@@ -19,3 +19,7 @@
 ## Wednesday,  23 October 2024
 - Change the minSDK to 23
 - Now notepad can popout some confirm before deete the notepad
+
+
+## Monday, 11 November 2024
+- Add the Shared Preference
