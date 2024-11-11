@@ -29,14 +29,15 @@ class NotesDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         onCreate(db)
     }
 
-    fun insertNote(note:Note){
+    fun insertNote(note: Note): Long {
         val db = writableDatabase
         val values = ContentValues().apply {
             put(COLUMN_TITLE, note.title)
             put(COLUMN_CONTENT, note.content)
         }
-        db.insert(TABLE_NAME, null, values)
+        val noteId = db.insert(TABLE_NAME, null, values) // Mendapatkan ID sebagai Long untuk keperluan SharedPref
         db.close()
+        return noteId // Mengembalikan ID yang baru dimasukkan untuk pengambilan ID SharedPref
     }
 
     fun getAllNotes(): List<Note> {
