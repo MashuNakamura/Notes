@@ -16,9 +16,12 @@
 - Now the Notepad can be updated
 - Now the Notepad can be deleted
 
-## Wednesday,  23 October 2024
+## Wednesday, 23 October 2024
 - Change the minSDK to 23
 - Now notepad can Pop Out some confirm before Delete the notepad
 
 ## Monday, 11 November 2024
 - Add the Shared Preference
+
+## Saturday, 23 November 2024
+- Test commit on Fedora OS
