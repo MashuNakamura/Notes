@@ -25,3 +25,7 @@
 
 ## Saturday, 23 November 2024
 - Test commit on Fedora OS
+
+## Monday, 2 December 2024
+- Add the Pointer while the user on Edit Text Mode (Night Mode)
+- New Text View while the Notes are empty
