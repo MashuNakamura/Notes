@@ -2,6 +2,7 @@ package com.okerachuchupurin.notes
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.okerachuchupurin.notes.databinding.ActivityMainBinding
@@ -17,10 +18,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         db = NotesDatabaseHelper(this)
-        notesAdapter = NotesAdapter(db.getAllNotes(), this)
 
         binding.notesRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.notesRecyclerView.adapter = notesAdapter
+        refreshNotes()
 
         binding.addButton.setOnClickListener {
             val intent = Intent(this, AddNoteActivity::class.java)
@@ -30,6 +30,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        notesAdapter.refreshData(db.getAllNotes()) // Memperbarui daftar catatan saat aktivitas dilanjutkan
+        refreshNotes() // Memperbarui daftar catatan saat kembali ke layar utama
+    }
+
+    fun refreshNotes() {
+        val notes = db.getAllNotes()
+        notesAdapter = NotesAdapter(notes, this)
+        binding.notesRecyclerView.adapter = notesAdapter
+
+        // Atur visibilitas berdasarkan kondisi daftar catatan
+        if (notes.isEmpty()) {
+            binding.notesRecyclerView.visibility = View.GONE
+            binding.emptyTextView.visibility = View.VISIBLE
+        } else {
+            binding.notesRecyclerView.visibility = View.VISIBLE
+            binding.emptyTextView.visibility = View.GONE
+        }
     }
 }

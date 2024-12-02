@@ -46,7 +46,7 @@ class NotesDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         val query = "SELECT * FROM $TABLE_NAME"
         val cursor = db.rawQuery(query, null)
 
-        while (cursor.moveToNext()){
+        while (cursor.moveToNext()) {
             val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
             val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
             val content = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT))
@@ -54,9 +54,10 @@ class NotesDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
             val note = Note(id, title, content)
             notesList.add(note)
         }
+
         cursor.close()
         db.close()
-        return notesList
+        return notesList // Jika tabel kosong, ini akan mengembalikan daftar kosong
     }
 
     fun updateNote(note: Note){
