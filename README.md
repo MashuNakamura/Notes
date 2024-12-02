@@ -29,3 +29,5 @@
 ## Monday, 2 December 2024
 - Add the Pointer while the user on Edit Text Mode (Night Mode)
 - New Text View while the Notes are empty
+- Now can be refreshed every the user delete the last note
+- More Prettier at Confirmation Delete

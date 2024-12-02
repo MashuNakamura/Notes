@@ -70,6 +70,23 @@ class NotesAdapter(private val notes: List<Note>, private val context: Context) 
             }
 
             val dialog = confirmPopout.create()
+            dialog.setOnShowListener {
+                // Ambil tombol positif dan negatif (Ya dan Tidak)
+                val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+                val negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE)
+
+                // Deteksi Dark Theme pada user Pengguna
+                val nightMode = context.resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK
+                val textColor = if (nightMode == android.content.res.Configuration.UI_MODE_NIGHT_YES) {
+                    context.getColor(android.R.color.white) // Warna teks putih untuk mode malam
+                } else {
+                    context.getColor(android.R.color.black) // Warna teks hitam untuk mode terang
+                }
+
+                // Setel warna teks tombol
+                positiveButton.setTextColor(textColor)
+                negativeButton.setTextColor(textColor)
+            }
             dialog.show()
         }
 
