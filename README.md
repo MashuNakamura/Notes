@@ -31,3 +31,11 @@
 - New Text View while the Notes are empty
 - Now can be refreshed every the user delete the last note
 - More Prettier at Confirmation Delete
+
+## Sunday, 8 December 2024
+- Add the Comment section every the implement Code
+- The Application is 100% Finish
+
+# TODO
+[ ] Compile to APK
+[ ] Publish to Playstore using Google Development Account
