@@ -16,6 +16,7 @@ class NotesAdapter(private val notes: List<Note>, private val context: Context) 
 
     private val db: NotesDatabaseHelper = NotesDatabaseHelper(context)
 
+    // Deklarasi Class ItemView (Tite, Content, Edit Button, Delete Button, Share Button
     class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
         val contentTextView: TextView = itemView.findViewById(R.id.contentTextView)
@@ -24,20 +25,22 @@ class NotesAdapter(private val notes: List<Note>, private val context: Context) 
         val shareButton: ImageView = itemView.findViewById(R.id.shareButton) // Tombol share
     }
 
+    // View dari Notes
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.notes_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.notes_item, parent, false)
         return NoteViewHolder(view)
     }
 
+    // Mengambil Total Notes
     override fun getItemCount(): Int = notes.size
 
+    // Letak posisi indeks
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val note = notes[position]
         holder.titleTextView.text = note.title
         holder.contentTextView.text = note.content
 
-        // Tombol Update
+        // Event Listener Tombol Update
         holder.updateButton.setOnClickListener {
             val intent = Intent(holder.itemView.context, UpdateNoteActivity::class.java).apply {
                 putExtra("note_id", note.id)
@@ -45,7 +48,7 @@ class NotesAdapter(private val notes: List<Note>, private val context: Context) 
             holder.itemView.context.startActivity(intent)
         }
 
-        // Tombol Delete
+        // Event Listener Tombol Delete
         holder.deleteButton.setOnClickListener {
             val confirmPopout = AlertDialog.Builder(context)
             confirmPopout.setTitle("Konfirmasi Penghapusan")
@@ -58,19 +61,20 @@ class NotesAdapter(private val notes: List<Note>, private val context: Context) 
                     context.refreshNotes()
                 }
 
-                Toast.makeText(
-                    holder.itemView.context,
-                    "Catatan berhasil dihapus",
-                    Toast.LENGTH_SHORT
-                ).show()
+                // Kalau beneran dihapus akan memunculkan Teks
+                Toast.makeText(holder.itemView.context,"Catatan berhasil dihapus", Toast.LENGTH_SHORT).show()
                 dialog.dismiss()
             }
+
+            // Popout untuk Konfirmasi
             confirmPopout.setNegativeButton("Tidak") { dialog, _ ->
                 dialog.dismiss()
             }
 
+            //  Membuat Popout
             val dialog = confirmPopout.create()
             dialog.setOnShowListener {
+
                 // Ambil tombol positif dan negatif (Ya dan Tidak)
                 val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
                 val negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE)
@@ -90,13 +94,14 @@ class NotesAdapter(private val notes: List<Note>, private val context: Context) 
             dialog.show()
         }
 
-        // Tombol Share
+        // Event Listener Tombol Share
         holder.shareButton.setOnClickListener {
             val shareIntent = Intent().apply {
                 action = Intent.ACTION_SEND
                 putExtra(Intent.EXTRA_TEXT, "Judul: ${note.title}\nIsi: ${note.content}")
                 type = "text/plain"
             }
+            // Isi saat melakukan Share
             holder.itemView.context.startActivity(
                 Intent.createChooser(shareIntent, "Bagikan Notes ${note.title}")
             )

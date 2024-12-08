@@ -17,34 +17,39 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Konteks panggil Database Helper ke Activity ini
         db = NotesDatabaseHelper(this)
 
+        // Refresh Tampilan
         binding.notesRecyclerView.layoutManager = LinearLayoutManager(this)
         refreshNotes()
 
+        // Kalau mau add Note, akan ada Intent ke arah AddNoteActivity
         binding.addButton.setOnClickListener {
             val intent = Intent(this, AddNoteActivity::class.java)
             startActivity(intent)
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        refreshNotes() // Memperbarui daftar catatan saat kembali ke layar utama
-    }
-
+    // Isi function Refresh
     fun refreshNotes() {
         val notes = db.getAllNotes()
         notesAdapter = NotesAdapter(notes, this)
         binding.notesRecyclerView.adapter = notesAdapter
 
-        // Atur visibilitas berdasarkan kondisi daftar catatan
         if (notes.isEmpty()) {
             binding.notesRecyclerView.visibility = View.GONE
             binding.emptyTextView.visibility = View.VISIBLE
+
         } else {
             binding.notesRecyclerView.visibility = View.VISIBLE
             binding.emptyTextView.visibility = View.GONE
         }
+    }
+
+    // Memanggil Function Refresh dan Akan selalu Refresh saat aplikasi masih digunakan
+    override fun onResume() {
+        super.onResume()
+        refreshNotes()
     }
 }

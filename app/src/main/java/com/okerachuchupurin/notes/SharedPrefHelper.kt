@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 
 object SharedPrefHelper {
+
     // Value Private Nama dan Last Note ID
     private const val PREF_NAME = "notes_pref"
     private const val LAST_NOTE_ID = "last_note_id"

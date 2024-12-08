@@ -15,12 +15,16 @@ class AddNoteActivity : AppCompatActivity() {
         binding = ActivityAddNoteBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Konteks panggil Database Helper ke Activity ini
         db = NotesDatabaseHelper(this)
 
+        // Event Listener saat save button
         binding.saveButton.setOnClickListener{
             val title = binding.titleEditText.text.toString()
             val content = binding.contentEditText.text.toString()
             val note = Note(0, title, content)
+
+            // Dicek apakah Valuenya tidak Kosong
             if (title.isEmpty()){
                 Toast.makeText(this, "Tolong Isi Title-nya !", Toast.LENGTH_SHORT).show()
             }

@@ -17,18 +17,21 @@ class NotesDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         private const val COLUMN_CONTENT = "content"
     }
 
+    // Deklarasi membuat Table
     override fun onCreate(db: SQLiteDatabase?) {
         val createTableQuery =
             "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY, $COLUMN_TITLE TEXT, $COLUMN_CONTENT TEXT)"
         db?.execSQL(createTableQuery)
     }
 
+    // Kalau di Update
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         val dropTableQuery = "DROP TABLE IF EXISTS $TABLE_NAME"
         db?.execSQL(dropTableQuery)
         onCreate(db)
     }
 
+    // Menginput Value
     fun insertNote(note: Note): Long {
         val db = writableDatabase
         val values = ContentValues().apply {
@@ -40,12 +43,14 @@ class NotesDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         return noteId // Mengembalikan ID yang baru dimasukkan untuk pengambilan ID SharedPref
     }
 
+    // Mengambil semua Notes
     fun getAllNotes(): List<Note> {
         val notesList = mutableListOf<Note>()
         val db = readableDatabase
         val query = "SELECT * FROM $TABLE_NAME"
         val cursor = db.rawQuery(query, null)
 
+        // Peralihan Index
         while (cursor.moveToNext()) {
             val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
             val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
@@ -60,6 +65,7 @@ class NotesDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         return notesList // Jika tabel kosong, ini akan mengembalikan daftar kosong
     }
 
+    // Untuk Update Note
     fun updateNote(note: Note){
         val db = writableDatabase
         val values = ContentValues().apply {
@@ -72,6 +78,7 @@ class NotesDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         db.close()
     }
 
+    // Mengambil Note dengan ID
     fun getNoteByID(noteId: Int): Note{
         val db = readableDatabase
         val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_ID = $noteId"
@@ -87,6 +94,7 @@ class NotesDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         return Note(id, title, content)
     }
 
+    // Untuk menghapus Note
     fun deleteNote(noteId: Int){
         val db = writableDatabase
         val whereClause = "$COLUMN_ID = ?"
