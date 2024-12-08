@@ -37,5 +37,5 @@
 - The Application is 100% Finish
 
 # TODO
-[ ] Compile to APK
+[x] Compile to APK
 [ ] Publish to Playstore using Google Development Account
