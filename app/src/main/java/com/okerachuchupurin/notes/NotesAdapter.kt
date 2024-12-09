@@ -62,7 +62,7 @@ class NotesAdapter(private val notes: List<Note>, private val context: Context) 
                 }
 
                 // Kalau beneran dihapus akan memunculkan Teks
-                Toast.makeText(holder.itemView.context,"Catatan berhasil dihapus", Toast.LENGTH_SHORT).show()
+                Toast.makeText(holder.itemView.context,"Catatan telah dihapus", Toast.LENGTH_SHORT).show()
                 dialog.dismiss()
             }
 
@@ -98,12 +98,12 @@ class NotesAdapter(private val notes: List<Note>, private val context: Context) 
         holder.shareButton.setOnClickListener {
             val shareIntent = Intent().apply {
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, "Judul: ${note.title}\nIsi: ${note.content}")
+                putExtra(Intent.EXTRA_TEXT, "Judul : ${note.title}\nDeskripsi : ${note.content}")
                 type = "text/plain"
             }
             // Isi saat melakukan Share
             holder.itemView.context.startActivity(
-                Intent.createChooser(shareIntent, "Bagikan Notes ${note.title}")
+                Intent.createChooser(shareIntent, "Bagikan Notes : ${note.title}")
             )
         }
     }

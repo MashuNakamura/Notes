@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
-        android:text="Add Note."
+        android:text="Add Note"
         android:textColor="@color/blue"
         android:textSize="24sp" />
 
@@ -32,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:hint="Title"
+        android:textColorHint="@color/blue"
         android:textColor="@color/blue"
         android:padding="12dp"
         android:textSize="20sp"
@@ -46,6 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:hint="Description"
+        android:textColorHint="@color/blue"
         android:textColor="@color/blue"
         android:gravity="top"
         android:padding="12dp"
@@ -54,4 +56,5 @@
         android:background="@drawable/gray_border"
         android:layout_below="@id/titleEditText"
         android:layout_marginTop="12dp"/>
+
 </RelativeLayout>

@@ -15,6 +15,7 @@
 - Fix the Layout item Card View
 - Now the Notepad can be updated
 - Now the Notepad can be deleted
+- Edit the Logo of the APKs
 
 ## Wednesday, 23 October 2024
 - Change the minSDK to 23
@@ -36,6 +37,10 @@
 - Add the Comment section every the implement Code
 - The Application is 100% Finish
 
+## Monday, 9 December 2024
+- Change the Hint Text Color
+- More Prettier Layout
+
 # TODO
 - [ ] Compile to APK
-- [ ] Publish to Playstore using Google Development Account
+- [ ] Publish to Play Store using Google Development Account
