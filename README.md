@@ -40,6 +40,7 @@
 ## Monday, 9 December 2024
 - Change the Hint Text Color
 - More Prettier Layout
+- More Comment Section to the implement code
 
 # TODO
 - [ ] Compile to APK
