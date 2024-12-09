@@ -16,6 +16,7 @@ object SharedPrefHelper {
         editor.apply()
     }
 
+    // Mengambil Last Note ID
     fun getLastNoteId(context: Context): Int {
         return context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE).getInt(LAST_NOTE_ID, -1)
     }
