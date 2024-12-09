@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.okerachuchupurin.notes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    // Memanggil secara private dari Activity lain
     private lateinit var binding: ActivityMainBinding
     private lateinit var db: NotesDatabaseHelper
     private lateinit var notesAdapter: NotesAdapter
@@ -34,13 +35,16 @@ class MainActivity : AppCompatActivity() {
     // Isi function Refresh
     fun refreshNotes() {
         val notes = db.getAllNotes()
+        // Mengambil konteks NotesAdapter
         notesAdapter = NotesAdapter(notes, this)
         binding.notesRecyclerView.adapter = notesAdapter
 
+        // Di cek kalau notes nya Kosong maka menampilkan text "Nothing to Show"
         if (notes.isEmpty()) {
             binding.notesRecyclerView.visibility = View.GONE
             binding.emptyTextView.visibility = View.VISIBLE
 
+        // Kalau notesnya tidak kosong, maka akan menampilkan Card View dari list Notes
         } else {
             binding.notesRecyclerView.visibility = View.VISIBLE
             binding.emptyTextView.visibility = View.GONE
