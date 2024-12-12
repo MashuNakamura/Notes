@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import android.widget.LinearLayout
 
 class NotesAdapter(private val notes: List<Note>, private val context: Context) :
     RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
@@ -22,7 +23,8 @@ class NotesAdapter(private val notes: List<Note>, private val context: Context) 
         val contentTextView: TextView = itemView.findViewById(R.id.contentTextView)
         val updateButton: ImageView = itemView.findViewById(R.id.editButton)
         val deleteButton: ImageView = itemView.findViewById(R.id.deleteButton)
-        val shareButton: ImageView = itemView.findViewById(R.id.shareButton) // Tombol share
+        val shareButton: ImageView = itemView.findViewById(R.id.shareButton)
+        val cardView: LinearLayout = itemView.findViewById(R.id.cardNotesView)
     }
 
     // View dari Notes
@@ -37,8 +39,33 @@ class NotesAdapter(private val notes: List<Note>, private val context: Context) 
     // Letak posisi indeks
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val note = notes[position]
+
         holder.titleTextView.text = note.title
         holder.contentTextView.text = note.content
+
+        // Event Listener saat Klik Card View
+        holder.cardView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, UpdateNoteActivity::class.java).apply {
+                putExtra("note_id", note.id)
+            }
+            holder.itemView.context.startActivity(intent)
+        }
+
+        // Event Listener saat Klik Title
+        holder.titleTextView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, UpdateNoteActivity::class.java).apply {
+                putExtra("note_id", note.id)
+            }
+            holder.itemView.context.startActivity(intent)
+        }
+
+        // Event Listener saat Klik Content
+        holder.contentTextView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, UpdateNoteActivity::class.java).apply {
+                putExtra("note_id" ,note.id)
+            }
+            holder.itemView.context.startActivity(intent)
+        }
 
         // Event Listener Tombol Update
         holder.updateButton.setOnClickListener {
