@@ -41,7 +41,8 @@
 - Change the Hint Text Color
 - More Prettier Layout
 - More Comment Section to the implement code
+- If the Edit / Update is Null, the Toast message send is "Tidak ada Perubahan"
 
 # TODO
-- [ ] Compile to APK
+- [x] Compile to APK
 - [ ] Publish to Play Store using Google Development Account
