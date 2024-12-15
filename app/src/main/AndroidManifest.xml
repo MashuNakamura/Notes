@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Notes"
         tools:targetApi="31">
-        <activity
-            android:name=".SharedPrefHelper"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".SharedPrefHelper"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".UpdateNoteActivity"
             android:exported="false" />
