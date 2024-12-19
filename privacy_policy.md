@@ -1,1 +1,1 @@
-This app will NOT take any of your data so there is no need for this privacy statement tbh.
+This application does not collect any personal user data. We do not require any special permissions and do not store any information from you. This application is safe for use by all ages and does not contain outdated content. Our focus is on providing a simple and easy-to-use notepad experience.
