@@ -43,6 +43,16 @@
 - More Comment Section to the implement code
 - If the Edit / Update is Null, the Toast message send is "Tidak ada Perubahan"
 
+## Sunday, 15 December 2024
+- Disabled the SharedPref Activity at Manifest
+- Add Signed Key to the Apps
+- Compile Bundle's for Publish to Google Play Console
+
+## Monday, 16 December
+- Create privacy_policy.md for information about Data Usage (Cuz the Google Play Console need it)
+- Publish to the Google Play Store (Still on Closed Testing)
+
 # TODO
 - [x] Compile to APK
-- [ ] Publish to Play Store using Google Development Account
+- [x] Publish to Play Store using Google Development Account
+- [ ] Publish is Completed
