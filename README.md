@@ -51,8 +51,3 @@
 ## Monday, 16 December
 - Create privacy_policy.md for information about Data Usage (Cuz the Google Play Console need it)
 - Publish to the Google Play Store (Still on Closed Testing)
-
-# TODO
-- [x] Compile to APK
-- [x] Publish to Play Store using Google Development Account
-- [ ] Publish is Completed
